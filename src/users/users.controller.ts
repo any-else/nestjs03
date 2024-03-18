@@ -37,4 +37,10 @@ export class UsersController {
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
   }
+
+  @Post('/search')
+  search(@Body() body: any) {
+    const { queryString } = body;
+    return this.usersService.search(queryString);
+  }
 }
